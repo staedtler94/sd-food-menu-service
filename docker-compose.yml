@@ -1,0 +1,23 @@
+version: "3.4"
+# This definition gets all services running locally, but will not allow you
+# to easily develop code with them interactively.
+#
+# Note that environment variables in this file surrounded by
+# `${VARNAME}` are set in the `.env` file in this directory!
+#
+# See the # BEGIN/END local DEV statements below for easy overrides to enable local dev for
+# each service as needed
+services:
+  mongo-explore:
+    container_name: mongo-explore
+    image: mongo:latest
+    environment:
+        - MONGO_INITDB_ROOT_USERNAME=root
+        - MONGO_INITDB_ROOT_PASSWORD=MyPa$$w0rd
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        # Here you are setting the username and password
+        # so change it to whatever you want
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    ports:
+      - "27017:27017"
+    command: mongod
